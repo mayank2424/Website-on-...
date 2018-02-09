@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<title>Mayank Gupta</title>
+    <meta name="google-signin-client_id" content="322483229031-9joed0fi97uackg3n3o0e7ifcmuaf99u.apps.googleusercontent.com">
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +12,7 @@
     <link href="main.css" rel="stylesheet">
     <link href="assets/css/animate.css" rel="stylesheet">
     <script src="assets/js/wow.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
     <nav id="header" class="navbar navbar-default navbar-fixed-top">
@@ -33,7 +35,22 @@
           <li><a href="#">Movie Time</a></li>
           <li><a href="#">Weather Forecast</a></li>
           <li><a href="#">E-commerce</a></li>
-          <li id="auth"><a href="#" class="auth">Login/Sign Up</a></li>
+          <li>
+                <div class="dropdown mybtn">
+                    <button id="mybtn" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Login\SignUp
+                    <span class="caret"></span></button>
+                 <ul class="dropdown-menu">
+                      <div>
+                         <fb:login-button 
+                              scope="public_profile,email"
+                              onlogin="checkLoginState();">
+                            </fb:login-button>
+                    </div>
+                        
+                      <div class="g-signin2" data-onsuccess="onSignIn"></div>   
+                    </ul>
+                </div>
+          </li>
     </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -172,23 +189,32 @@
 
     
 </div>
-    
-    
+        
     
     
   <div class="register">
-      <fb:login-button 
-  scope="public_profile,email"
-  onlogin="checkLoginState();">
-</fb:login-button>
+      
+      
+
+      
+      <div>
+              <fb:login-button 
+          scope="public_profile,email"
+          onlogin="checkLoginState();">
+        </fb:login-button>
+          
+      </div>      
   </div>
     
-    <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+<!--    <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>-->
+
+  
     
+
     
-    
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">    
-</script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="web.js"></script>
     <script src="assets/js/bootstrap.js"></script>
     <script>
      new WOW().init();
@@ -197,10 +223,7 @@
     
 
 <script>
-    
-    
-    
-     function statusChangeCallback(response) {
+    function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
     // The response object is returned with a status field that lets the
@@ -259,12 +282,20 @@
       function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
+      document.write('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
     });
   }
     
+    
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}    
 </script> 
     
    
