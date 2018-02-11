@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <script src="assets/js/wow.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+    
+    <style>
+        body{
+            background: url("assets/images/weatherbg.jpg");
+/*            background: #FAFAD2;*/
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
+            width: 100%;
+            color:white;
+            overflow-x: hidden;
+    
+        }
+        #hit{
+            float:left;
+            
+        }
+        #cities{
+            width: 50%;;
+            float:left;
+        }
+        
+        #header{
+/*            height: 70px;*/
+            background:transparent;
+            margin-bottom: 105px;
+        }
+        #cities{
+            height: 50px;
+            
+        }
+        .enter{
+            margin: 40px 0 0 300px;
+        }
+        #hit{
+            background-color: midnightblue;
+            border:0;
+            height: 50px;
+            width: 80px;
+            border-radius: 12px;
+            margin-left: 20px;
+        }
+        .form{
+            height: 100%;
+            width: 40%;
+            color: black;
+            background: white;
+          margin-left: auto;
+            margin-right: 70px;
+            border-radius: 15px;
+            margin-bottom: 70px;
+        }
+        .collector{
+            margin-left: 180px;
+            margin-top: 70px;
+        }
+        
+        .data{
+            border: 1px solid rgba(34,125,170,1);
+            padding: 25px;
+            border-radius: 8px;
+            margin:12px;
+            font-size: 15px;
+ 
+        }
+        .moving{
+            margin-left: 40%;
+        }
+        .moving img{
+            height: 80px;
+            border-radius:10px;
+        }
+/*
+        .data1{
+            border: 1px solid rgba(34,125,170,1);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 10px;
+        }
+*/
+        .dates{
+            font-size: 20px;
+            font-weight: 300;
+            background: rgba(34,125,170,1);
+            color: white;
+        }
+        .Cname{
+            font-size: 23px;
+            font-weight: 600;
+        }
+        
+        @media(max-width: 800px){
+            .enter{
+                margin:auto;
+            }
+            
+            #forms .form{
+                width: 90%;
+            }
+            .collector{
+                margin-left:auto;
+            }
+            h1{
+                font-size: 30px;
+            }
+            .moving img{
+                height: 70px;
+            }
+            h3{
+                font-size: 16px;
+            }
+            body{
+                overflow-x:hidden;
+            }
+        }
+    </style>
+    
+<body>
+    <nav id="header" class="navbar navbar-default">
+      <div class="container wow fadeInUp">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">Back To Home</a>
+         <h1 class="text-center head">WeatherForecast...</h1> 
+         <span class="moving"><img src="assets/images/weather.gif"></span>    
+        </div>
+      </div>
+    </nav>
+    <div>
+        
+        <div class="search">
+              
+           <div class="container enter wow fadeInUp">
+              <h3>Enter City name</h3>
+               <input type="text" placeholder="Enter city" class="form-control" id="cities">
+               <button id="hit" type="submit">Search</button>
+               
+           </div>
+            <div id="Error"></div>
+        </div>
+       <div id="forms" class="container collector">
+          
+         <div class=" form col-md-6 col-xs-12 wow fadeInUp">
+             <h3 class="text-center">Current Weather</h3>
+             <hr>
+             <div class="moving"><img src="assets/images/weather.gif"></div>
+              <div id="Current_day">  
+<!--
+                  <div class="Cname  text-center" id="name"></div>
+                  <div class="Cname text-center" id="country"></div>
+-->                
+                  <div class="data dates" id="City_name"></div>
+                  <div class="data" id="tempc"></div>
+                  <div class="data"  id="maxc"></div>
+                  <div class="data"  id="minc"></div>
+                  <div class="data"  id="humc"></div>
+                  <div class="data"  id="Windc"></div>
+              </div> 
+         </div>
+           
+          <div class="form col-md-6 col-xs-12 wow fadeInUp">
+              <h3 class="text-center">Upcoming Weather forecast</h3>
+              <hr>
+              <div class="moving"><img src="assets/images/weather.gif"></div>
+             <div id="next_day">  
+                  <div class="Cname  text-center" id="name"></div>
+                  <div class="Cname text-center" id="country"></div>
+                  <div class="data dates" id="date"></div>
+                  <div class="data"  id="max"></div>
+                  <div class="data"  id="min"></div>
+                  <div class="data"  id="hum"></div>
+                  <div class="data"  id="wind"></div>
+              </div> 
+              <br><br>
+              <div next_to>  
+<!--
+                  <div class="data1" id="name"></div>
+                  <div class="data1" id="country"></div>
+-->
+                  <div class="data dates" id="date1"></div>
+<!--                  <div class="data1" id="Icons"></div>-->
+                  <div class="data" id="max1"></div>
+                  <div class="data" id="min1"></div>
+                  <div class="data" id="hum1"></div>
+                  <div class="data" id="wind1"></div>
+              </div> 
+         </div>
+             
+        </div>
+    </div>
+<footer class="bottom">
+    <div class="text-center"> Simple Weather Forecast App</div>
+    </footer>    
+    <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+    <script src="web.js"></script>
+    <script>
+     new WOW().init();
+    </script>
+</body> 
+</html>

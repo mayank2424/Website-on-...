@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cart</title>
+     <link href="assets/css/animate.css" rel="stylesheet">
+    <script src="assets/js/wow.min.js"></script>
+     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+     <meta name="google-signin-client_id" content="322483229031-9joed0fi97uackg3n3o0e7ifcmuaf99u.apps.googleusercontent.com">
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    
+    <style>
+        body{
+            overflow-x:hidden;
+            height:100%;
+            background:#5b635e38;
+/*            color:white;*/
+            font-family: 'Lato', sans-serif;
+        }
+        h1{
+            color:midnightblue;
+            font-size:70px;
+            margin-bottom: 40px;
+            font-weight:600;
+        }
+        div{
+/*            float:left;*/
+            margin-right: 20px;
+        }
+
+        #cart_items .headerRow,.itemRow{
+            display:flex;
+        }
+        .simpleCart_increment{
+             color:rgba(34,125,170,1);
+            margin-left:-30px;
+             padding: 5px 10px 5px 10px;
+            border-radius: 5px;
+                 background: #dddddd;
+        }
+        .simpleCart_decrement{
+                padding: 5px 10px 5px 10px;
+            border-radius: 5px;
+            color:rgba(34,125,170,1);
+            margin-right:-38px;
+            background: #dddddd;
+        }
+       .headerRow > .item-name {
+            background: lightsteelblue;
+            border-radius: 5px;
+            padding-right: 18px;
+        }
+        .headerRow .item-price{
+            background: lightsteelblue;
+            border-radius: 5px;
+            padding: 5px;
+            padding-right:18px;
+        }
+        .headerRow .item-quantity{
+            background: lightsteelblue;
+            border-radius: 5px;
+            padding-right: 18px;
+        }
+        .headerRow .item-total{
+            background: lightsteelblue;
+            border-radius: 5px;
+            padding-right: 18px;
+        }
+        .simpleCart_remove{
+            font-size:15px;
+            text-decoration: none;
+/*            margin-left: 50px;*/
+        }
+        .row-1 .item-price{
+            margin-right:25px;
+        }
+        .row-0 .item-price{
+            margin-right:30px;
+        }
+            
+        
+/*
+        .item-quantity{
+            margin:0;
+        }
+*/
+        .headerRow{
+            width:60%;
+            font-size:20px;
+            margin-left:13px;
+            text-indent:28px;
+            font-size:30px;
+            color:black;
+            margin-top: 20px;
+/*            background:rgba(34,125,170,1);*/
+
+        }
+        .itemRow{
+            text-align:center;
+            margin-top: 40px;
+            color:black;
+            font-size: 15px;
+            text-indent: 40px;
+            
+        }
+        #cart_items{
+            width: 55%;
+             margin-left: auto;
+             margin-right: auto;
+/*            border:2px solid black;*/
+            color:white;
+            padding-top: 20px;
+            padding-bottom: 40px;
+            background:#f5f5f5;
+             box-shadow: 0 0 30px lightsteelblue;
+/*            border-radius: 10px;*/
+        }
+        .total{
+            width:25%;
+            margin-top:40px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 20px lightsteelblue;
+        }
+        .total h5{
+            font-size: 20px;
+            font-weight:600;
+            
+        }
+        .TOTAL{
+            font-size:15px;
+            margin-left: 20px;
+             background: lightsteelblue;
+            border-radius: 5px;
+            padding-right: 18px;
+            padding-left:10px;
+        }
+        .footer{
+            text-align:center;
+            background:black;
+            margin:0;
+        }
+        .footer h3{
+            margin-bottom:0;
+            height:auto;
+            color:white;
+            padding:20px;
+        }
+        .header{
+            background:black;
+            margin:0;
+        }
+        .header h3{
+            margin:0;
+            padding: 30px;
+            color: white;
+        }
+        .header a{
+            color:white;
+            text-decoration: none;
+        }
+        .header a:hover{
+            text-decoration: none;
+            color:blue;
+        }
+    </style>
+</head>
+    
+    <body>
+    
+<!--    <div><a href="ecommerce.html"> Back To Products</a></div>-->
+<div class="header">
+    <h3 class="text-center"><a href="ecommerce.html">E Commerce for Amazing Shoes</a></h3>  
+        
+</div>        
+<a href="javascript:;" class="simpleCart_checkout"></a>
+        <h1 class="text-center">Cart</h1>
+<div id="cart_items">        
+   <div class="simpleCart_items container" >
+    </div>
+</div>    
+
+<div class="total container">
+    <div class=" tprice">     
+        <h5>Total Price --><span class="simpleCart_total TOTAL "></span></h5>
+<!--        <span class="simpleCart_total"></span>-->
+    </div>    
+    <!-- cart quantity (ex. 3) -->
+
+    <div class="tquan">        
+        <h5>Total Quantity --> <span class="simpleCart_quantity TOTAL"></span></h5>
+    </div>    
+    <!-- grand total, including tax and shipping (ex. $28.49) -->
+
+    <div class=" ttotal">  
+        <h5>Grand Total --><span class="simpleCart_grandTotal TOTAL "></span></h5>
+    </div>
+ </div>    
+       
+<div class="footer">
+    <h3>Thanks For Shopping..</h3>
+</div>        
+        <script src="assets/js/simpleCart.js"></script>
+    <script>
+  simpleCart({
+    checkout: {
+      type: "PayPal",
+      email: "you@yours.com"
+    }
+  });
+        </script>
+    </body>
+</html>

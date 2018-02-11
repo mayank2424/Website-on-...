@@ -13,9 +13,13 @@
     <link href="assets/css/animate.css" rel="stylesheet">
     <script src="assets/js/wow.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="web.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
 </head>
 <body>
-    <nav id="header" class="navbar navbar-default navbar-fixed-top">
+<nav id="header" class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -25,33 +29,43 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-<!--      <a class="navbar-brand" href="#">Website</a>-->
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div id="elements" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-center wow fadeInRight">
-          <li><a href="#" class="active">About Me</a></li>
-          <li><a href="#">Movie Time</a></li>
-          <li><a href="#">Weather Forecast</a></li>
-          <li><a href="#">E-commerce</a></li>
+    <div  class="collapse navbar-collapse elements" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav  wow fadeInRight">
+          <li><a href="assets/movie.html" target="_blank" class="active">About Me</a></li>
+          <li><a href="movie.html" target="_blank">Movie Time</a></li>
+          <li><a href="waether.html" target="_blank">Weather Forecast</a></li>
+          <li><a href="ecommerce.html" target="_blank">E-commerce</a></li>
           <li>
                 <div class="dropdown mybtn">
                     <button id="mybtn" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Login\SignUp
                     <span class="caret"></span></button>
                  <ul class="dropdown-menu">
-                      <div>
+                     <h4 class="text-center">Get Authenticate</h4>
+                      <div class="fbtn">
+<!--                           
+                           
                          <fb:login-button 
                               scope="public_profile,email"
                               onlogin="checkLoginState();">
                             </fb:login-button>
+-->
+                          <h5>Login With Facebook</h5>
+                         <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
                     </div>
-                        
-                      <div class="g-signin2" data-onsuccess="onSignIn"></div>   
+<!--                facebook btn closed     -->
+                   <div class="gbtn">    
+                    <h4>Sign in With Google</h4>
+                      <div class="g-signin2" data-onsuccess="onSignIn"></div> 
+                   </div> 
+<!--        gbtn closed             -->
                     </ul>
                 </div>
+<!--              drop down div tag closed-->
           </li>
-    </ul>
+      </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
@@ -59,7 +73,7 @@
 <div class="about_me">
     <!--    <img src="assets/images/background3.jpg">-->
          <div class="main">
-             <h3>Mayank Gupta</h3>
+              <div class="myidentity">Developer m@y@nk</div>
             <div class="container details  wow fadeInUp">
               <h1>Web Developer And Programmer</h1>
                   <h3>Interested In how Web Can Develop Change</h3>
@@ -115,7 +129,7 @@
                     <div class="bar">
                       <h2>CSS</h2>
                         <div class="skillbar_container">
-                           <div class="skill_bar" style="width:80%;"></div>
+                           <div class="skill_bar" style="width:70%;"></div>
                         </div>
                     </div>
 
@@ -129,14 +143,14 @@
                      <div class="bar">
                       <h2>Javascript</h2>
                         <div class="skillbar_container">
-                           <div class="skill_bar" style="width:80%;"></div>
+                           <div class="skill_bar" style="width:65%;"></div>
                         </div>
                     </div>
 
                      <div class="bar">
                       <h2>Node Js</h2>
                         <div class="skillbar_container">
-                           <div class="skill_bar" style="width:80%;"></div>
+                           <div class="skill_bar" style="width:55%;"></div>
                         </div>
                     </div>
                     <div class="bar">
@@ -148,13 +162,13 @@
                     <div class="bar">
                       <h2>C</h2>
                         <div class="skillbar_container">
-                           <div class="skill_bar" style="width:80%;"></div>
+                           <div class="skill_bar" style="width:50%;"></div>
                         </div>
                     </div>
                     <div class="bar">
                       <h2>Python</h2>
                         <div class="skillbar_container">
-                           <div class="skill_bar" style="width:80%;"></div>
+                           <div class="skill_bar" style="width:53%;"></div>
                         </div>
                     </div>
                      <div class="bar">
@@ -192,30 +206,18 @@
         
     
     
-  <div class="register">
-      
-      
-
-      
-      <div>
-              <fb:login-button 
-          scope="public_profile,email"
-          onlogin="checkLoginState();">
-        </fb:login-button>
-          
-      </div>      
-  </div>
     
 <!--    <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>-->
 
   
+<div class="footer"> 
+    <h3 class="text-center">Developed By@ Mayank Gupta</h3>
+</div>
     
 
     
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="web.js"></script>
-    <script src="assets/js/bootstrap.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    
     <script>
      new WOW().init();
     </script>
